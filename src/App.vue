@@ -1,11 +1,12 @@
 <script setup lang="ts">
+import AccountManagement from './components/AccountManagement.vue'
 </script>
 
 <template>
   <v-app>
     <v-main>
       <v-container>
-        <h1>Vue App</h1>
+        <AccountManagement />
       </v-container>
     </v-main>
   </v-app>
