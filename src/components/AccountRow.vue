@@ -19,6 +19,7 @@
             @blur="parseLabels"
             density="compact"
             persistent-hint
+            variant="outlined"
           />
         </v-col>
         <v-col cols="12" sm="6" :md="hasPassword ? 2 : 3">
@@ -28,6 +29,7 @@
             :items="entryTypes"
             density="compact"
             persistent-hint
+            variant="outlined"
           />
         </v-col>
         <v-col cols="12" sm="6" :md="hasPassword ? 3 : 4">
@@ -38,6 +40,7 @@
             maxlength="100"
             density="compact"
             persistent-hint
+            variant="outlined"
           />
         </v-col>
         <v-col v-if="hasPassword" cols="12" sm="6" md="3">
@@ -50,6 +53,7 @@
             maxlength="100"
             density="compact"
             persistent-hint
+            variant="outlined"
             @click:append-inner="visiblePassword = !visiblePassword"
           />
         </v-col>
