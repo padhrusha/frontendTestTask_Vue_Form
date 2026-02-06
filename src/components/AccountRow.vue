@@ -42,13 +42,15 @@
         </v-col>
         <v-col v-if="hasPassword" cols="12" sm="6" md="3">
           <v-text-field
+            :append-inner-icon="visiblePassword ? 'mdi-eye-off' : 'mdi-eye'"
+            :type="visiblePassword ? 'text' : 'password'"
             v-model="account.password"
             label="Пароль"
-            type="password"
             :rules="requiredRules"
             maxlength="100"
             density="compact"
             persistent-hint
+            @click:append-inner="visiblePassword = !visiblePassword"
           />
         </v-col>
         <v-col cols="auto">
@@ -60,7 +62,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, watch } from 'vue';
+import {computed, ref, watch} from 'vue';
 import type { Account } from '@/types/account';
 
 const props = withDefaults(defineProps<{
@@ -74,6 +76,8 @@ const emit = defineEmits<{
   remove: []
   saved: []
 }>();
+
+const visiblePassword = ref(false);
 
 const hasPassword = computed(() => props.account.entryType !== 'LDAP');
 
